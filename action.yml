@@ -1,13 +1,15 @@
-name: 'Wait'
-description: 'Wait a designated number of milliseconds'
+name: 'Slugify'
+description: 'Slugify the commit ref'
 inputs:
-  milliseconds:  # id of input
-    description: 'number of milliseconds to wait'
-    required: true
-    default: '1000'
+  sha_length:
+    description: 'The length to shorten the commit SHA to'
+    required: false
+    default: '7'
 outputs:
-  time: # output will be available to future steps 
-    description: 'The message to output'
+  branch:
+    description: 'The slugified branch'
+  sha:
+    description: 'The <sha_length> character SHA of the commit'
 runs:
   using: 'node12'
   main: 'dist/index.js'
