@@ -36,17 +36,14 @@ jobs:
       - name: "Checkout"
         uses: actions/checkout@master
 
-      - name: "Run action"
-        uses: docker://ergebnis/github-action-template:latest
+      - name: "Run slugify"
+        id: slugify
+        uses: eltimn/slugify-action@v1
+
+      - name: "Echo slugify outputs"
+        run: |
+          echo ${{steps.slugify.outputs.branch}}-${{steps.slugify.outputs.sha}}
 ```
-
-## Contributing
-
-Please have a look at [`CONTRIBUTING.md`](.github/CONTRIBUTING.md).
-
-## Code of Conduct
-
-Please have a look at [`CODE_OF_CONDUCT.md`](.github/CODE_OF_CONDUCT.md).
 
 ## License
 
