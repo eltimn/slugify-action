@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/eltimn/slugify-action#readme",
   "dependencies": {
-    "@actions/core": "^1.2.1",
+    "@actions/core": "^1.2.6",
     "@actions/github": "^2.0.1"
   },
   "devDependencies": {
