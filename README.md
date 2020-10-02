@@ -20,7 +20,7 @@ on:
   pull_request:
   push:
     branches:
-      - master
+      - main
     tags:
       - "**"
 
@@ -34,7 +34,7 @@ jobs:
 
     steps:
       - name: "Checkout"
-        uses: actions/checkout@master
+        uses: actions/checkout@v1
 
       - name: "Run slugify"
         id: slugify

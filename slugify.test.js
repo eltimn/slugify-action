@@ -24,3 +24,8 @@ test('branch longer than 63 characters', () => {
   expect(slugify('branch-with-name-longer-than-63-characters-xxxxxxxxxx-xxxxxxxxxx-xxxxxxxxxx'))
     .toBe('branch-with-name-longer-than-63-characters-xxxxxxxxxx-xxxxxxxxx')
 })
+
+test('branch longer than 63 characters that ends with hyphen', () => {
+  expect(slugify('branch-with-name-longer-than-63-characters-xxxxxxxxxx-xxxxxxxxx-xxxxxxxxxx'))
+    .toBe('branch-with-name-longer-than-63-characters-xxxxxxxxxx-xxxxxxxxx')
+})
