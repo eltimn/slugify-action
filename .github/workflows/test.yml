@@ -1,32 +1,31 @@
-name: "units-test"
+name: "Tests"
 on:
   pull_request:
   push:
     branches:
       - master
-      - 'releases/*'
+      - "releases/*"
 
 jobs:
   # unit tests
   units:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - name: test
-      run: |
-        npm ci
-        npm test
+      - uses: actions/checkout@v1
+      - name: test
+        run: |
+          npm ci
+          npm test
 
   # test action works running from the graph
   test:
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v1
-    - uses: ./
-      id: slugify
-      with:
-        sha_length: 6
-    - name: "Echo slugify outputs"
-      run: |
-        echo ${{steps.slugify.outputs.branch}}-${{steps.slugify.outputs.sha}}
-
+      - uses: actions/checkout@v1
+      - uses: ./
+        id: slugify
+        with:
+          sha_length: 6
+      - name: "Echo slugify outputs"
+        run: |
+          echo ${{steps.slugify.outputs.branch}}-${{steps.slugify.outputs.sha}}
