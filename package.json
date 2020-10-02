@@ -1,6 +1,6 @@
 {
   "name": "slugify-action",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Slugify Github Action",
   "main": "index.js",
   "scripts": {
@@ -15,7 +15,8 @@
   "keywords": [
     "GitHub",
     "Actions",
-    "JavaScript"
+    "JavaScript",
+    "slugify"
   ],
   "author": "eltimn",
   "license": "MIT",
@@ -25,11 +26,11 @@
   "homepage": "https://github.com/eltimn/slugify-action#readme",
   "dependencies": {
     "@actions/core": "^1.2.6",
-    "@actions/github": "^2.0.1"
+    "@actions/github": "^4.0.0"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.21.0",
-    "eslint": "^6.8.0",
-    "jest": "^25.1.0"
+    "@vercel/ncc": "^0.24.1",
+    "eslint": "^7.10.0",
+    "jest": "^26.4.2"
   }
 }

@@ -1,4 +1,4 @@
-# Slugify Github action
+# Slugify Github Action
 
 This action slugifies the commit ref (branch or tag name) similar to what Gitlab uses. It also sets a shortened commit SHA.
 
