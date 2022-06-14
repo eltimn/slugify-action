@@ -22,13 +22,20 @@ try {
     core.setOutput('branch', branch)
     core.setOutput('sha', sha)
     console.log(`Output variables set for pull_request event: ${branch}-${sha}`)
-  } else if (github.context.eventName === 'push' || github.context.eventName === 'workflow_dispatch') {
+  } else if (github.context.eventName === 'push') {
     const parts = github.context.ref.split('/')
     const branch = slugify(parts[parts.length - 1])
     const sha = github.context.sha.slice(0, shaLength)
     core.setOutput('branch', branch)
     core.setOutput('sha', sha)
     console.log(`Output variables set for push event: ${branch}-${sha}`)
+  } else if (github.context.eventName === 'workflow_dispatch') {
+      const parts = github.context.ref.split('/')
+      const branch = slugify(parts[parts.length - 1])
+      const sha = github.context.sha.slice(0, shaLength)
+      core.setOutput('branch', branch)
+      core.setOutput('sha', sha)
+      console.log(`Output variables set for push event: ${branch}-${sha}`)
   } else {
     core.setFailed(`No implementation for event_name: ${github.context.eventName}`)
   }
