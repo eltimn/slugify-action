@@ -39,9 +39,9 @@ try {
       core.setOutput('sha', sha)
       console.log(`Output variables set for push event: ${branch}-${sha}`)
   } else {
-    console.log(`event_name: >${github.context.eventName}<`)
+    console.log(`No implementation for event_namex: >${github.context.eventName}<`)
     // core.setFailed(`No implementation for event_name: ${github.context.eventName}`)
   }
 } catch (error) {
-  core.setFailed(error.message)
+  core.setFailed(`Caught error: ${error.message}`)
 }
