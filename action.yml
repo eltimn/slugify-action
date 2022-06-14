@@ -11,5 +11,5 @@ outputs:
   sha:
     description: 'The <sha_length> character SHA of the commit'
 runs:
-  using: 'node12'
+  using: 'node16'
   main: 'dist/index.js'
