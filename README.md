@@ -48,3 +48,7 @@ jobs:
 ## License
 
 This package is licensed using the MIT
+
+## Publishing
+
+Run `npm run package` to create a distribution artifact.
