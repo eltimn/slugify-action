@@ -30,6 +30,7 @@ jobs:
         id: slugify
         with:
           sha_length: 6
+      - run: npm ci
       - name: "Echo slugify outputs"
         run: |
           echo ${{steps.slugify.outputs.branch}}-${{steps.slugify.outputs.sha}}
