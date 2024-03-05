@@ -52,7 +52,7 @@ jobs:
 
       - name: "Run slugify"
         id: slugify
-        uses: eltimn/slugify-action@v1.6
+        uses: eltimn/slugify-action@v2
 
       - name: "Echo slugify outputs"
         run: |
