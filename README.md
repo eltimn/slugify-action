@@ -9,6 +9,20 @@ This action slugifies the commit ref (branch or tag name) similar to what Gitlab
 * Maximum length is 63 bytes
 * First/Last Character is not a hyphen
 
+## inputs
+
+`sha_length`:
+  - description: 'The length to shorten the commit SHA to'
+  - required: false
+  - default: '7'
+
+## outputs:
+  `branch`:
+  - description: 'The slugified branch'
+
+  `sha`:
+  - description: 'The <sha_length> character SHA of the commit'
+
 ## Usage
 
 Define a workflow in `.github/workflows/continuous-integration.yml` (or add a job if you already have defined workflows).
