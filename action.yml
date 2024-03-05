@@ -1,15 +1,15 @@
-name: 'Slugify'
-description: 'Slugify the commit ref'
+name: "Slugify"
+description: "Slugify the commit ref"
 inputs:
   sha_length:
-    description: 'The length to shorten the commit SHA to'
+    description: "The length to shorten the commit SHA to"
     required: false
-    default: '7'
+    default: "7"
 outputs:
   branch:
-    description: 'The slugified branch'
+    description: "The slugified branch"
   sha:
-    description: 'The <sha_length> character SHA of the commit'
+    description: "The <sha_length> character SHA of the commit"
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: "node20"
+  main: "dist/index.js"
