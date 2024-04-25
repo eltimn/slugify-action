@@ -1,5 +1,5 @@
-name: "Slugify"
-description: "Slugify the commit ref"
+name: "Slugify Branch"
+description: "Slugify the GIT branch."
 inputs:
   sha_length:
     description: "The length to shorten the commit SHA to"
