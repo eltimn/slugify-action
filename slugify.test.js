@@ -1,4 +1,4 @@
-const slugify = require('./slugify')
+import slugify from './slugify.js'
 
 test('branch with underscores', () => {
   expect(slugify('branch_with_underscores')).toBe('branch-with-underscores')

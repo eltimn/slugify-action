@@ -34,4 +34,4 @@ const slugify = branch => {
   return ret
 }
 
-module.exports = slugify
+export default slugify

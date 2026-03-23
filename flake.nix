@@ -1,17 +1,21 @@
 {
   inputs = {
-    # nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-25.11";
     systems.url = "github:nix-systems/default";
   };
 
-  outputs = { systems, nixpkgs, ... }:
+  outputs =
+    { systems, nixpkgs, ... }:
     let
-      eachSystem = f:
-        nixpkgs.lib.genAttrs (import systems)
-        (system: f nixpkgs.legacyPackages.${system});
-    in {
+      eachSystem = f: nixpkgs.lib.genAttrs (import systems) (system: f nixpkgs.legacyPackages.${system});
+    in
+    {
       devShells = eachSystem (pkgs: {
-        default = pkgs.mkShell { buildInputs = [ pkgs.nodejs_20 ]; };
+        default = pkgs.mkShell {
+          buildInputs = [
+            pkgs.nodejs_24
+          ];
+        };
       });
     };
 }
