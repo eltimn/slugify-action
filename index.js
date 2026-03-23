@@ -1,6 +1,6 @@
-const core = require('@actions/core')
-const github = require('@actions/github')
-const slugify = require('./slugify')
+import { getInput, setOutput, setFailed } from '@actions/core'
+import { context } from '@actions/github'
+import slugify from './slugify.js'
 
 const defaultShaLength = 7
 
@@ -13,25 +13,25 @@ const parseLengthInput = s => {
 }
 
 try {
-  const shaLength = parseLengthInput(core.getInput('sha_length'))
+  const shaLength = parseLengthInput(getInput('sha_length'))
 
-  if (github.context.eventName === 'pull_request') {
-    const pullRequest = github.context.payload.pull_request
+  if (context.eventName === 'pull_request') {
+    const pullRequest = context.payload.pull_request
     const branch = slugify(pullRequest.head.ref)
     const sha = pullRequest.head.sha.slice(0, shaLength)
-    core.setOutput('branch', branch)
-    core.setOutput('sha', sha)
+    setOutput('branch', branch)
+    setOutput('sha', sha)
     console.log(`Output variables set for pull_request event: ${branch}-${sha}`)
-  } else if (github.context.eventName === 'push' || github.context.eventName === 'workflow_dispatch' || github.context.eventName === 'schedule') {
-    const parts = github.context.ref.split('/')
+  } else if (context.eventName === 'push' || context.eventName === 'workflow_dispatch' || context.eventName === 'schedule') {
+    const parts = context.ref.split('/')
     const branch = slugify(parts[parts.length - 1])
-    const sha = github.context.sha.slice(0, shaLength)
-    core.setOutput('branch', branch)
-    core.setOutput('sha', sha)
+    const sha = context.sha.slice(0, shaLength)
+    setOutput('branch', branch)
+    setOutput('sha', sha)
     console.log(`Output variables set for push event: ${branch}-${sha}`)
   } else {
-    core.setFailed(`No implementation for event_name: ${github.context.eventName}`)
+    setFailed(`No implementation for event_name: ${context.eventName}`)
   }
 } catch (error) {
-  core.setFailed(error.message)
+  setFailed(error.message)
 }
